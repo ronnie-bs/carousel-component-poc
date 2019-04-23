@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.html",
   "scripts": {
+    "start": "./node_modules/.bin/live-server --no-browser --entry-file=index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
 }

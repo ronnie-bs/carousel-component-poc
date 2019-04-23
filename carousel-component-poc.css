@@ -1,0 +1,80 @@
+body {
+    background: url(./images/background.png) 0 0/cover no-repeat;
+}
+
+p {
+    color: red;
+}
+
+div.carousel-container {
+    /* border: solid 1px lightgray; */
+    display: flex;
+    width: 1000px;
+    margin: 50 auto;
+    overflow-x: auto;
+}
+
+div.card-container {
+    width: 200px;
+    padding: 5px;
+    margin: 10px;
+    background: white;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 250px;
+}
+
+div.card-container-last {
+    width: 200px;
+    padding: 5px;
+    margin: 10px;
+    background-image: linear-gradient(to right, white, rgba(0, 0, 0, 0) 50%);
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 250px;
+}
+
+div.card-container-last p {
+    color: red;
+    /* -webkit-mask-image: -webkit-gradient(linear, left top, right bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0))); */
+    -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0) 50%);
+}
+
+div.icon {
+    text-align: center;
+}
+
+div.action-buttons {
+    width: 1000px;
+    margin: 50px auto;
+    text-align: right;
+}
+
+div.action-buttons button {
+    height: 40px;
+    background-color: lightgray;
+    color: red;
+    border-radius: 10px;
+}
+
+div.left-edge-mask {
+    border: solid 1px red;
+    width: 100px;
+    height: 245px;
+    position: fixed;
+    margin-top: 18px;
+    top: 0;
+    left: 339px;
+    background-image: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+}
+
+div.right-edge-mask {
+    border: solid 1px red;
+    width: 100px;
+    height: 245px;
+    position: fixed;
+    margin-top: 18px;
+    top: 0;
+    left: 1239px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+}

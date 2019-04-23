@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "start": "./node_modules/.bin/live-server --no-browser --entry-file=index.html",
+    "start": "./node_modules/.bin/live-server --no-browser --mount=/:src --entry-file=index.html --watch=src,package.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

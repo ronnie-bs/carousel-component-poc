@@ -24,15 +24,17 @@ function computeCardPositions() {
                 const pct = Math.trunc((caroundBoundRight - cardContainerBound.left) / cardContainerBound.width * 100);
                 console.log('pct', i, pct);
                 if (pct < 99 ) {
-                    // const offset = pct > 20 ? 20 : 5;
-                    const offset = pct <= 80 ? pct - 20 : (2 * pct - 105) ;
+                    // const offset = pct <= 80 ? pct - 20 : (2 * pct - 105);
+                    const offsetFactor = 30;
+                    const offsetBuffer = 3;
+                    const offset = pct <= (100 - offsetFactor) ? (pct - offsetFactor) : (pct - offsetFactor) + (pct - (100 - offsetFactor)) + offsetBuffer;
                     console.log('offset', offset);
                     cardContainerElem[i].style.background = 'unset';
-                    cardContainerElem[i].style.backgroundImage = 'linear-gradient(to right, white ' + offset + '%, rgba(255, 255, 255, 0) ' + pct + '%)';
-                    // pElem.style.maskImage = 'linear-gradient(to right, rgba(0,0,0,1) ' + (pct - 20) + ', rgba(0,0,0,0)' + pct + '%)';
-                    // pElem.style.webkitMaskImage = 'linear-gradient(to right, rgba(0,0,0,1) ' + (pct - 20) + ', rgba(0,0,0,0)' + pct + '%)';
+                    cardContainerElem[i].style.backgroundImage = 'linear-gradient(to right, rgba(255, 255, 255, 1) ' + offset + '%, rgba(255, 255, 255, 0) ' + pct + '%)';
+                    // pElem.style.maskImage = 'linear-gradient(to right, rgba(0,0,0,1) ' + offset + ', rgba(0,0,0,0)' + pct + '%)';
+                    // pElem.style.webkitMaskImage = 'linear-gradient(to right, rgba(0,0,0,1) ' + offset + ', rgba(0,0,0,0)' + pct + '%)';
                 } else {
-                    cardContainerElem[i].style.background = 'white';
+                    cardContainerElem[i].style.background = 'rgba(255, 255, 255, 1)';
                     cardContainerElem[i].style.backgroundImage = 'unset';
                     // pElem.style.maskImage = 'unset';
                     // pElem.style.webkitMaskImage = 'unset';
@@ -41,7 +43,7 @@ function computeCardPositions() {
             // cardContainerElem[i].classList.add('last-card');
         } else {
             // cardContainerElem[i].classList.remove('last-card');
-            cardContainerElem[i].style.background = 'white';
+            cardContainerElem[i].style.background = 'rgba(255, 255, 255, 1)';;
             cardContainerElem[i].style.backgroundImage = 'unset';
             // pElem.style.maskImage = 'unset';
             // pElem.style.webkitMaskImage = 'unset';

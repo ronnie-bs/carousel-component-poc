@@ -13,6 +13,16 @@ if (!Math.trunc) {
     };
 }
 
+function scrollCarouselLeft() {
+    var carouselContainerElem = document.getElementsByClassName('carousel-container')[0];
+    carouselContainerElem.scrollLeft -= 100;
+}
+
+function scrollCarouselRight() {
+    var carouselContainerElem = document.getElementsByClassName('carousel-container')[0];
+    carouselContainerElem.scrollLeft += 100;
+}
+
 function onLoad() {
     computeCardPositions();
 }

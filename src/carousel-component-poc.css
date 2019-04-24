@@ -6,6 +6,13 @@ p {
     color: red;
 }
 
+div.outer-container {
+    display: flex;
+    align-items: center;
+    width: 1000px;
+    margin: 0 auto;
+}
+
 div.carousel-container {
     /* border: solid 1px lightgray; */
     display: flex;
@@ -51,24 +58,41 @@ div.action-buttons button {
     border-radius: 10px;
 }
 
-div.left-edge-mask {
-    border: solid 1px red;
-    width: 100px;
-    height: 245px;
-    position: fixed;
-    margin-top: 18px;
-    top: 0;
-    left: 339px;
-    background-image: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+div.left-arrow {
+    position: relative;
+    width: 33px;
+    height: 33px;
+    margin: 0 auto;
+    text-align: center;
+    right: -30px;
+    cursor: pointer;
+    z-index: 10;
 }
 
-div.right-edge-mask {
-    border: solid 1px red;
-    width: 100px;
-    height: 245px;
-    position: fixed;
-    margin-top: 18px;
-    top: 0;
-    left: 1239px;
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+div.left-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+div.left-arrow span {
+    color: white;
+    font-size: 30px;
+}
+div.right-arrow {
+    position: relative;
+    width: 33px;
+    height: 33px;
+    margin: 0 auto;
+    text-align: center;
+    left: -30px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+div.right-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+div.right-arrow span {
+    color: white;
+    font-size: 30px;
 }

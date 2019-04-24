@@ -5,6 +5,10 @@
 </head>
 <body onload="onLoad()">
     <div class="outer-container">
+        <div class="left-arrow" onclick="scrollCarouselLeft()">
+            <span> &lt; </span>
+        </div>
+        
         <div class="carousel-container" onscroll="scrollHandler()">
         <!-- <div class="carousel-container"> -->
             <div class="card-container">
@@ -57,9 +61,10 @@
                 </p>    
            </div>
        </div>
-       <!-- <div class="action-buttons">
-           <button onclick="showCardPositions()">Show Card Positions</button>
-      </div> -->
+
+       <div class="right-arrow" onclick="scrollCarouselRight()">
+            <span> &gt; </span>
+       </div>
    </div>
 </body>
 </html>

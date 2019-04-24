@@ -14,13 +14,53 @@ if (!Math.trunc) {
 }
 
 function scrollCarouselLeft() {
-    var carouselContainerElem = document.getElementsByClassName('carousel-container')[0];
-    carouselContainerElem.scrollLeft -= 100;
+    const carouselContainerElem = document.getElementsByClassName('carousel-container')[0];
+    const carouselBound = carouselContainerElem.getBoundingClientRect();
+    const carouselBoundLeft = Math.trunc(carouselBound.left);
+    const cardSpacing = 20;
+
+    let cardIndex = -1;
+    let cardBound = null;
+    var cardContainerElem = document.getElementsByClassName('card-container');
+    for (var i = 0; i < cardContainerElem.length; i++) {
+        const cardContainerBound = cardContainerElem[i].getBoundingClientRect();
+
+        if (cardContainerBound.left > carouselBoundLeft) {
+            cardIndex = i - 1;
+            cardBound = cardContainerBound;
+            break;
+        }
+    }
+
+    if (cardIndex > -1) {
+        const scrollPx = cardBound.width - (cardBound.left - carouselBoundLeft) + cardSpacing;
+        carouselContainerElem.scrollLeft -= scrollPx;
+    }
 }
 
 function scrollCarouselRight() {
-    var carouselContainerElem = document.getElementsByClassName('carousel-container')[0];
-    carouselContainerElem.scrollLeft += 100;
+    const carouselContainerElem = document.getElementsByClassName('carousel-container')[0];
+    const carouselBound = carouselContainerElem.getBoundingClientRect();
+    const carouselBoundRight = Math.trunc(carouselBound.right);
+
+    let cardIndex = -1;
+    let cardBound = null;
+    var cardContainerElem = document.getElementsByClassName('card-container');
+    for (var i = 0; i < cardContainerElem.length; i++) {
+        const cardContainerBound = cardContainerElem[i].getBoundingClientRect();
+        const cardContainerRelPos = Math.trunc(cardContainerBound.left + cardContainerBound.width);
+
+        if (cardContainerRelPos > carouselBoundRight) {
+            cardIndex = i;
+            cardBound = cardContainerBound;
+            break;
+        }
+    }
+
+    if (cardIndex > -1) {
+        const scrollPx = cardBound.width - (carouselBoundRight - cardBound.left);
+        carouselContainerElem.scrollLeft += scrollPx;
+    }
 }
 
 function onLoad() {
@@ -32,7 +72,7 @@ function scrollHandler() {
 }
 
 function computeCardPositions() {
-    var carouselContainerElem = document.getElementsByClassName('carousel-container')[0];
+    const carouselContainerElem = document.getElementsByClassName('carousel-container')[0];
     const carouselBound = carouselContainerElem.getBoundingClientRect();
     const carouselBoundLeft = Math.trunc(carouselBound.left);
     const carouselBoundRight = Math.trunc(carouselBound.right);

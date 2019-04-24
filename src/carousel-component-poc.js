@@ -36,6 +36,7 @@ function computeCardPositions() {
                     offset = priorRightOffset;
                     // console.log('offset', offset);
                     cardContainerElem[i].style.background = 'linear-gradient(to right, rgba(255, 255, 255, 1) ' + offset + '%, rgba(255, 255, 255, 0) ' + pct + '%)';
+                    cardContainerElem[i].style.filter = 'progid:DXImageTransform.Microsoft.gradient(startColorstr=rgba(255, 255, 255, 1), endColorstr=rgba(255, 255, 255, 0), GradientType=1)'
                     pElem.style.maskImage = 'linear-gradient(to right, rgba(255, 255, 255, 1) ' + offset + '%, rgba(255 ,255, 255, 0)' + pct + '%)';
                     pElem.style.webkitMaskImage = 'linear-gradient(to right, rgba(255, 255, 255, 1) ' + offset + '%, rgba(255, 255, 255, 0)' + pct + '%)';
                     iconElem.style.maskImage = 'linear-gradient(to right, rgba(255, 255, 255, 1) ' + offset + '%, rgba(255 ,255, 255, 0)' + pct + '%)';

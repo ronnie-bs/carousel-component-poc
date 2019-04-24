@@ -1,3 +1,6 @@
+let priorLeftOffset = -1;
+let priorRightOffset = -1;
+
 function onLoad() {
     computeCardPositions();
 }
@@ -25,10 +28,12 @@ function computeCardPositions() {
             if (cardContainerBound.left <= carouselBoundRight) {
                 const pct = Math.trunc((carouselBoundRight - cardContainerBound.left) / cardContainerBound.width * 100);
                 // console.log('pct', i, pct);
-                if (pct < 99 && pct >= 0) {
+                if (pct >= 0 && pct <= 100) {
                     const offsetFactor = 40;
                     const offsetBuffer = 3;
-                    const offset = pct <= (100 - offsetFactor) ? (pct - offsetFactor) : (pct - offsetFactor) + (pct - (100 - offsetFactor)) + offsetBuffer;
+                    let offset = pct <= (100 - offsetFactor) ? (pct - offsetFactor) : (pct - offsetFactor) + (pct - (100 - offsetFactor)) + offsetBuffer;
+                    priorRightOffset = (priorRightOffset === -1 || offset < priorRightOffset) ? offset : priorRightOffset;
+                    offset = priorRightOffset;
                     // console.log('offset', offset);
                     cardContainerElem[i].style.background = 'unset';
                     cardContainerElem[i].style.backgroundImage = 'linear-gradient(to right, rgba(255, 255, 255, 1) ' + offset + '%, rgba(255, 255, 255, 0) ' + pct + '%)';
@@ -37,6 +42,7 @@ function computeCardPositions() {
                     iconElem.style.maskImage = 'linear-gradient(to right, rgba(255, 255, 255, 1) ' + offset + '%, rgba(255 ,255, 255, 0)' + pct + '%)';
                     iconElem.style.webkitMaskImage = 'linear-gradient(to right, rgba(255, 255, 255, 1) ' + offset + '%, rgba(255, 255, 255, 0)' + pct + '%)';
                 } else {
+                    priorRightOffset = -1;
                     cardContainerElem[i].style.background = 'rgba(255, 255, 255, 1)';
                     cardContainerElem[i].style.backgroundImage = 'unset';
                     pElem.style.maskImage = 'unset';
@@ -45,16 +51,18 @@ function computeCardPositions() {
                     iconElem.style.webkitMaskImage = 'unset';
                 }
             }
-        } else if (cardContainerBound.left <= carouselBoundLeft) {
-            console.log('cardContainerRelPos', i, cardContainerRelPos);
-            console.log('carouselBoundLeft', i, carouselBoundLeft);
+        } else if (cardContainerBound.left < carouselBoundLeft) {
+            // console.log('cardContainerRelPos', i, cardContainerRelPos);
+            // console.log('carouselBoundLeft', i, carouselBoundLeft);
             const pct = Math.trunc((cardContainerBound.right - carouselBoundLeft) / cardContainerBound.width * 100);
-            console.log('pct', i, pct);
+            // console.log('pct', i, pct);
 
-            if (pct > 0 && pct <= 99 ) {
+            if (pct >= 0 && pct <= 100 ) {
                 const offsetFactor = 40;
                 const offsetBuffer = 3;
-                const offset = pct <= (100 - offsetFactor) ? (pct - offsetFactor) : (pct - offsetFactor) + (pct - (100 - offsetFactor)) + offsetBuffer;
+                let offset = pct <= (100 - offsetFactor) ? (pct - offsetFactor) : (pct - offsetFactor) + (pct - (100 - offsetFactor)) + offsetBuffer;
+                priorLeftOffset = (priorLeftOffset === -1 || offset < priorLeftOffset) ? offset : priorLeftOffset;
+                offset = priorLeftOffset;
                 // console.log('offset', offset);
                 cardContainerElem[i].style.background = 'unset';
                 cardContainerElem[i].style.backgroundImage = 'linear-gradient(to left, rgba(255, 255, 255, 1) ' + offset + '%, rgba(255, 255, 255, 0) ' + pct + '%)';
@@ -63,6 +71,7 @@ function computeCardPositions() {
                 iconElem.style.maskImage = 'linear-gradient(to left, rgba(255, 255, 255, 1) ' + offset + '%, rgba(255 ,255, 255, 0)' + pct + '%)';
                 iconElem.style.webkitMaskImage = 'linear-gradient(to left, rgba(255, 255, 255, 1) ' + offset + '%, rgba(255, 255, 255, 0)' + pct + '%)';
             } else {
+                priorLeftOffset = -1;
                 cardContainerElem[i].style.background = 'rgba(255, 255, 255, 1)';
                 cardContainerElem[i].style.backgroundImage = 'unset';
                 pElem.style.maskImage = 'unset';
@@ -71,6 +80,8 @@ function computeCardPositions() {
                 iconElem.style.webkitMaskImage = 'unset';
             }
         } else {
+            priorLeftOffset = -1;
+            priorRightOffset = -1;
             cardContainerElem[i].style.background = 'rgba(255, 255, 255, 1)';;
             cardContainerElem[i].style.backgroundImage = 'unset';
             pElem.style.maskImage = 'unset';

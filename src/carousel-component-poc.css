@@ -24,18 +24,12 @@ div.card-container {
     flex-basis: 250px;
 }
 
-div.card-container-last {
-    width: 200px;
-    padding: 5px;
-    margin: 10px;
+div.last-card {
+    background: unset;
     background-image: linear-gradient(to right, white, rgba(0, 0, 0, 0) 50%);
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: 250px;
 }
 
-div.card-container-last p {
-    color: red;
+div.last-card p {
     mask-image: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0) 50%);
     -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0) 50%);
 }

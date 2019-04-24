@@ -25,8 +25,7 @@ function computeCardPositions() {
                 const pct = Math.trunc((caroundBoundRight - cardContainerBound.left) / cardContainerBound.width * 100);
                 // console.log('pct', i, pct);
                 if (pct < 99 ) {
-                    // const offset = pct <= 80 ? pct - 20 : (2 * pct - 105);
-                    const offsetFactor = 30;
+                    const offsetFactor = 40;
                     const offsetBuffer = 3;
                     const offset = pct <= (100 - offsetFactor) ? (pct - offsetFactor) : (pct - offsetFactor) + (pct - (100 - offsetFactor)) + offsetBuffer;
                     // console.log('offset', offset);

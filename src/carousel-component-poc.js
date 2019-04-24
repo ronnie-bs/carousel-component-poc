@@ -1,6 +1,18 @@
 let priorLeftOffset = -1;
 let priorRightOffset = -1;
 
+if (!Math.trunc) {
+    Math.trunc = Math.trunc || function(x) {
+        if (isNaN(x)) {
+            return NaN;
+        }
+        if (x > 0) {
+            return Math.floor(x);
+        }
+        return Math.ceil(x);
+    };
+}
+
 function onLoad() {
     computeCardPositions();
 }

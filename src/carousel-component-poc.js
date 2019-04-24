@@ -15,6 +15,7 @@ function computeCardPositions() {
     var cardContainerElem = document.getElementsByClassName('card-container');
     for (var i = 0; i < cardContainerElem.length; i++) {
         const pElem = cardContainerElem[i].getElementsByTagName('p')[0];
+        const iconElem = cardContainerElem[i].getElementsByClassName('icon')[0];
         const cardContainerBound = cardContainerElem[i].getBoundingClientRect();
         const cardContainerRelPos = Math.trunc(cardContainerBound.left + cardContainerBound.width);
 
@@ -33,11 +34,15 @@ function computeCardPositions() {
                     cardContainerElem[i].style.backgroundImage = 'linear-gradient(to right, rgba(255, 255, 255, 1) ' + offset + '%, rgba(255, 255, 255, 0) ' + pct + '%)';
                     pElem.style.maskImage = 'linear-gradient(to right, rgba(255, 255, 255, 1) ' + offset + '%, rgba(255 ,255, 255, 0)' + pct + '%)';
                     pElem.style.webkitMaskImage = 'linear-gradient(to right, rgba(255, 255, 255, 1) ' + offset + '%, rgba(255, 255, 255, 0)' + pct + '%)';
+                    iconElem.style.maskImage = 'linear-gradient(to right, rgba(255, 255, 255, 1) ' + offset + '%, rgba(255 ,255, 255, 0)' + pct + '%)';
+                    iconElem.style.webkitMaskImage = 'linear-gradient(to right, rgba(255, 255, 255, 1) ' + offset + '%, rgba(255, 255, 255, 0)' + pct + '%)';
                 } else {
                     cardContainerElem[i].style.background = 'rgba(255, 255, 255, 1)';
                     cardContainerElem[i].style.backgroundImage = 'unset';
                     pElem.style.maskImage = 'unset';
                     pElem.style.webkitMaskImage = 'unset';
+                    iconElem.style.maskImage = 'unset';
+                    iconElem.style.webkitMaskImage = 'unset';
                 }
             }
             // cardContainerElem[i].classList.add('last-card');
@@ -47,6 +52,8 @@ function computeCardPositions() {
             cardContainerElem[i].style.backgroundImage = 'unset';
             pElem.style.maskImage = 'unset';
             pElem.style.webkitMaskImage = 'unset';
+            iconElem.style.maskImage = 'unset';
+            iconElem.style.webkitMaskImage = 'unset';
         }
     } 
 

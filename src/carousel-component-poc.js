@@ -35,8 +35,7 @@ function computeCardPositions() {
                     priorRightOffset = (priorRightOffset === -1 || offset < priorRightOffset) ? offset : priorRightOffset;
                     offset = priorRightOffset;
                     // console.log('offset', offset);
-                    cardContainerElem[i].style.background = 'unset';
-                    cardContainerElem[i].style.backgroundImage = 'linear-gradient(to right, rgba(255, 255, 255, 1) ' + offset + '%, rgba(255, 255, 255, 0) ' + pct + '%)';
+                    cardContainerElem[i].style.background = 'linear-gradient(to right, rgba(255, 255, 255, 1) ' + offset + '%, rgba(255, 255, 255, 0) ' + pct + '%)';
                     pElem.style.maskImage = 'linear-gradient(to right, rgba(255, 255, 255, 1) ' + offset + '%, rgba(255 ,255, 255, 0)' + pct + '%)';
                     pElem.style.webkitMaskImage = 'linear-gradient(to right, rgba(255, 255, 255, 1) ' + offset + '%, rgba(255, 255, 255, 0)' + pct + '%)';
                     iconElem.style.maskImage = 'linear-gradient(to right, rgba(255, 255, 255, 1) ' + offset + '%, rgba(255 ,255, 255, 0)' + pct + '%)';
@@ -44,7 +43,6 @@ function computeCardPositions() {
                 } else {
                     priorRightOffset = -1;
                     cardContainerElem[i].style.background = 'rgba(255, 255, 255, 1)';
-                    cardContainerElem[i].style.backgroundImage = 'unset';
                     pElem.style.maskImage = 'unset';
                     pElem.style.webkitMaskImage = 'unset';
                     iconElem.style.maskImage = 'unset';
@@ -64,8 +62,7 @@ function computeCardPositions() {
                 priorLeftOffset = (priorLeftOffset === -1 || offset < priorLeftOffset) ? offset : priorLeftOffset;
                 offset = priorLeftOffset;
                 // console.log('offset', offset);
-                cardContainerElem[i].style.background = 'unset';
-                cardContainerElem[i].style.backgroundImage = 'linear-gradient(to left, rgba(255, 255, 255, 1) ' + offset + '%, rgba(255, 255, 255, 0) ' + pct + '%)';
+                cardContainerElem[i].style.background = 'linear-gradient(to left, rgba(255, 255, 255, 1) ' + offset + '%, rgba(255, 255, 255, 0) ' + pct + '%)';
                 pElem.style.maskImage = 'linear-gradient(to left, rgba(255, 255, 255, 1) ' + offset + '%, rgba(255 ,255, 255, 0)' + pct + '%)';
                 pElem.style.webkitMaskImage = 'linear-gradient(to left, rgba(255, 255, 255, 1) ' + offset + '%, rgba(255, 255, 255, 0)' + pct + '%)';
                 iconElem.style.maskImage = 'linear-gradient(to left, rgba(255, 255, 255, 1) ' + offset + '%, rgba(255 ,255, 255, 0)' + pct + '%)';
@@ -73,7 +70,6 @@ function computeCardPositions() {
             } else {
                 priorLeftOffset = -1;
                 cardContainerElem[i].style.background = 'rgba(255, 255, 255, 1)';
-                cardContainerElem[i].style.backgroundImage = 'unset';
                 pElem.style.maskImage = 'unset';
                 pElem.style.webkitMaskImage = 'unset';
                 iconElem.style.maskImage = 'unset';
@@ -83,7 +79,6 @@ function computeCardPositions() {
             priorLeftOffset = -1;
             priorRightOffset = -1;
             cardContainerElem[i].style.background = 'rgba(255, 255, 255, 1)';;
-            cardContainerElem[i].style.backgroundImage = 'unset';
             pElem.style.maskImage = 'unset';
             pElem.style.webkitMaskImage = 'unset';
             iconElem.style.maskImage = 'unset';

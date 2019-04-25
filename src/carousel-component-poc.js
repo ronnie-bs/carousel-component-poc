@@ -13,6 +13,27 @@ if (!Math.trunc) {
     };
 }
 
+function animateScrollLeft(carouselElem, scrollPx, iPos=0, jPos=0) {
+    setTimeout(function () {
+        carouselElem.scrollLeft -= 2;
+        const i = iPos - 2;
+        const j = jPos + 2;
+        if (j < scrollPx) {
+            animateScrollLeft(carouselElem, scrollPx, i, j);
+        }
+    }, 7);
+}
+
+function animateScrollRight(carouselElem, scrollPx, iPos=0) {
+    setTimeout(function () {
+        carouselElem.scrollLeft += 2;
+        const i = iPos + 2;
+        if (i < (scrollPx * 2 - 20)) {
+            animateScrollRight(carouselElem, scrollPx, i);
+        }
+    }, 3);
+}
+
 function scrollCarouselLeft() {
     const carouselContainerElem = document.getElementsByClassName('carousel-container')[0];
     const carouselBound = carouselContainerElem.getBoundingClientRect();
@@ -34,7 +55,8 @@ function scrollCarouselLeft() {
 
     if (cardIndex > -1) {
         const scrollPx = cardBound.width - (cardBound.left - carouselBoundLeft) + cardSpacing;
-        carouselContainerElem.scrollLeft -= scrollPx;
+        // carouselContainerElem.scrollLeft -= scrollPx;
+        animateScrollLeft(carouselContainerElem, scrollPx);
     }
 }
 
@@ -59,7 +81,8 @@ function scrollCarouselRight() {
 
     if (cardIndex > -1) {
         const scrollPx = cardBound.width - (carouselBoundRight - cardBound.left);
-        carouselContainerElem.scrollLeft += scrollPx;
+        // carouselContainerElem.scrollLeft += scrollPx;
+        animateScrollRight(carouselContainerElem, scrollPx);
     }
 }
 

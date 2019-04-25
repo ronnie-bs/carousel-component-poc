@@ -18,7 +18,7 @@ div.carousel-container {
     display: flex;
     width: 1000px;
     margin: 50 auto;
-    overflow-x: auto;
+    overflow-x: hidden;
 }
 
 div.card-container {

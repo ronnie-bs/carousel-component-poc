@@ -21,7 +21,7 @@ function animateScrollLeft(carouselElem, scrollPx, iPos=0, jPos=0) {
         if (j < scrollPx) {
             animateScrollLeft(carouselElem, scrollPx, i, j);
         }
-    }, 7);
+    }, 3);
 }
 
 function animateScrollRight(carouselElem, scrollPx, iPos=0) {
